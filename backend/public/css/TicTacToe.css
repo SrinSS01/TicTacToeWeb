@@ -1,0 +1,121 @@
+body {
+    background-color: #343333;
+    user-select: none;
+    display: grid;
+    grid-template-rows: fit-content(100%);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    transform: scale(0.9);
+}
+
+div {
+    text-align: center;
+    color: aliceblue;
+    font-family: "Courier New", serif;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+}
+
+div.Title {
+    font-size: 40px;
+}
+
+div.VerticalAlign {
+    padding: 0;
+}
+
+div.Game {
+    padding: 0;
+}
+
+div.Board {
+    background-color: #212122;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, fit-content(100%));
+}
+
+div.row {
+    padding: 5px;
+    display: grid;
+    grid-template-rows: repeat(1, fit-content(100%));
+    grid-gap: 10px;
+}
+
+div.resultWindow {
+    position: absolute;
+    transform: translateY(-170%);
+    width: 100%;
+    padding: 0;
+    left: 0;
+    z-index: 2;
+}
+
+div.result {
+    background: #3a3434;
+    border-radius: 10px;
+    box-shadow: black 0 0 30px;
+    width: fit-content;
+}
+
+#winner {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+
+input.replay {
+    color: wheat;
+    background-color: #55F;
+    font-family: "Courier New", serif, "JetBrains Mono ExtraBold";
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    border-bottom-width: 5px;
+    border-right-width: 0;
+    border-bottom-color: #33339a;
+    border-left-width: 0;
+    border-top-width: 0;
+    padding: 5px 15px;
+}
+
+input.replay:hover {
+    box-shadow: #5555FF 0 0 10px;
+}
+
+input.replay:active {
+    border-bottom-width: 5px;
+    box-shadow: #5555FF 0 0 0;
+}
+
+img.cell {
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    background-color: #3a3a3b;
+    border-width: 0;
+    border-radius: 10px;
+    transition: 0.2s;
+    z-index: 2;
+}
+
+img.cell:hover {
+    transform: scale(1.01);
+    box-shadow: wheat 0 0 55px;
+    z-index: 1;
+}
+
+img.cell:active {
+    transform: scale(0.9005);
+    box-shadow: #3f3f40 0 0 55px;
+}

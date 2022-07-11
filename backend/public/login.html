@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget, JSUnresolvedFunction -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--    <script>-->
+<!--        $('form').on('submit', event => {-->
+<!--           event.preventDefault();-->
+<!--           if ($('#invite').val().trim().length === 0) {-->
+<!--               event.stopPropagation();-->
+<!--               return;-->
+<!--           }-->
+<!--            console.log("foo")-->
+<!--            $('form').submit();-->
+<!--        });-->
+<!--    </script>-->
+    <form action="TicTacToe.html">
+        <div class="invite">
+<!--            <label for="invite">invite: </label>-->
+            <input id="invite" type="text" placeholder="Enter or create a invite" autocomplete="off">
+            <script src="/socket.io/socket.io.js"></script>
+            <script>
+                const socket = io();
+                $('form').on('submit', () => {
+                    const invite = $('#invite').val().trim();
+                    socket.emit('create room', invite);
+                });
+            </script>
+        </div>
+        <input class="submit" type="submit" value="join">
+    </form>
+</body>
+</html>
