@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "backend/App.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
+    "start": "node backend/App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
