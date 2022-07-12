@@ -15,23 +15,47 @@ app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    res.sendFile(path.join(__dirname, 'public', 'TicTacToe.html'));
 });
 
-app.get('/create', (req, res) => {
-    const invite = req.query.invite;
-    if (!invite) {
-        res.send('No invite');
-    } else {
-        res.sendFile(path.join(__dirname, 'public', 'TicTacToe.html'));
-        io.on("connection", socket => {
-            console.log(`connected to ${ invite }`);
-            socket.join(invite);
-            socket.on('play', index => {
-                socket.to(invite).emit('play', index);
-            });
+io.on("connection", socket => {
+    let invite;
+    socket.on('join game', (inv, callback) => {
+        invite = inv;
+        socket.join(inv);
+        io.in(invite).fetchSockets().then(sockets => {
+            const length = sockets.length;
+            switch (length) {
+                case 1: {
+                    callback({
+                        err: false,
+                        player: 'x'
+                    });
+                } break;
+                case 2: {
+                    callback({
+                        err: false,
+                        player: 'o'
+                    });
+                } break;
+                default: {
+                    callback({
+                        err: true,
+                        player: undefined
+                    });
+                    socket.leave(inv);
+                }
+            }
         });
-    }
-})
+    });
+    socket.on('play', (index) => socket.to(invite).emit('play', index));
+    socket.on('reset', () => socket.to(invite).emit('reset'));
+    socket.on('start game', () => {
+        socket.to(invite).emit('start game');
+    });
+    socket.on('disconnect', () => {
+        socket.to(invite).emit('leave');
+    });
+});
 
 server.listen(PORT, () => console.log(`listening to port: ${ PORT }`));

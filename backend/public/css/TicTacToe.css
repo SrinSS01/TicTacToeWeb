@@ -30,12 +30,70 @@ div.Title {
     font-size: 40px;
 }
 
-div.VerticalAlign {
-    padding: 0;
+input.invite {
+    background-color: #2c2727;
+    border-radius: 10px;
+    color: #e09f9f;
+    font-family: "Courier New", serif, "JetBrains Mono ExtraBold";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+}
+input.invite {
+    outline: none;
+}
+
+div.login {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(58, 52, 52);
+    font-family: "Courier New", serif, "JetBrains Mono ExtraBold";
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(224, 159, 159);
+    box-shadow: black 5px 10px 30px;
+    gap: 25px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input.submit {
+    font-family: "Courier New", serif, "JetBrains Mono ExtraBold";
+    font-size: 15px;
+    font-weight: bold;
+    color: wheat;
+    background-color: #5555FF;
+    border-radius: 10px;
+    border-bottom-width: 5px;
+    border-right-width: 0;
+    border-bottom-color: #33339a;
+    border-left-width: 0;
+    border-top-width: 0;
+    padding: 5px 15px;
+}
+
+input.submit:hover {
+    box-shadow: #5555FF 0 0 10px;
+}
+
+input.submit:active {
+    border-bottom-width: 5px;
+    box-shadow: #5555FF 0 0 0;
 }
 
 div.Game {
     padding: 0;
+    display: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 div.Board {
@@ -54,7 +112,7 @@ div.row {
 
 div.resultWindow {
     position: absolute;
-    transform: translateY(-170%);
+    transform: translateY(50%);
     width: 100%;
     padding: 0;
     left: 0;
@@ -118,4 +176,53 @@ img.cell:hover {
 img.cell:active {
     transform: scale(0.9005);
     box-shadow: #3f3f40 0 0 55px;
+}
+
+div.error {
+    display: none;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #a91212;
+    border-radius: 5px;
+}
+
+div.waiting {
+    display: none;
+    padding: 0;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+div.message > div {
+    font-size: 20px;
+    padding: 3px;
+    font-style: italic;
+}
+
+span.inviteCode {
+    font-style: initial;
+    color: rgb(224, 159, 159);
+    user-select: text;
+}
+
+div.players {
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+div.players > div {
+    font-style: italic;
+}
+
+div.players > img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
 }
