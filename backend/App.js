@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 500;
 const io = new Server(server);
 
 app.use(express.static(__dirname + '/public'));
